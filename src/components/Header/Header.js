@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className={` flex`} >
      {pathname === "/" && <div className="w-[5%]"><Sidebar/></div>}
-    <div className={`${pathname !== "/" ? "w-full" : "w-[95%]"} bg-[#13100A] py-4 px-6 flex items-center flex-wrap gap-[14rem]`}>
+    <div className={`sticky ${pathname !== "/" ? "w-full" : "w-[95%]"} bg-[#13100A] py-4 px-6 flex items-center flex-wrap gap-[14rem]`}>
       {/* LEFT: Logo + Nav */}
       <div className="flex items-center gap-6 flex-wrap">
         {/* Logo */}

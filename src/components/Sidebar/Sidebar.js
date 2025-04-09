@@ -17,7 +17,7 @@ import Image from "next/image";
 
 const menuItems = [
   { icon: <FaHome />, label: "Home" },
-  { icon: <FaEnvelope />, label: "Messages", hasDot: true },
+  { icon: <FaEnvelope />, label: "Messages"},
   { icon: <FaStore />, label: "Game Store" },
   { icon: <FaCreditCard />, label: "Payments" },
   { icon: <FaTrophy />, label: "Leaderboard" },
@@ -36,9 +36,7 @@ const Sidebar = () => {
     <Link href="#" key={index}>
       <div className="flex items-center gap-3 px-3 py-2 hover:bg-[#1f1d18] rounded-lg relative">
         {item.icon}
-        {item.hasDot && (
-          <span className="absolute top-1 left-3 h-2 w-2 bg-red-500 rounded-full" />
-        )}
+        
         <span className="text-sm">{item.label}</span>
       </div>
     </Link>
@@ -83,9 +81,7 @@ const Sidebar = () => {
                   className="flex items-center justify-center p-2 hover:bg-[#1f1d18] rounded-lg"
                 >
                   {item.icon}
-                  {item.hasDot && (
-                    <span className="absolute top-1 h-2 w-2 bg-red-500 rounded-full" />
-                  )}
+                 
                 </div>
               )
             )}
