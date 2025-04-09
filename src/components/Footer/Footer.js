@@ -14,7 +14,7 @@ const Footer = () => {
     <div className='bg-[#13100A] w-full'>
         <ul className='flex w-full px-6 md:px-18 lg:px-30 py-6 justify-between '>
         {footerList?.map((item , index) => (
-          <Link href="#"><li className='text-[#FFFFFFCC] text-xs md:text-md lg:text-lg font-light md:font-medium' key={index}>{item}</li></Link>
+          <Link  key={index} href="#"><li className='text-[#FFFFFFCC] text-xs md:text-md lg:text-lg font-light md:font-medium'>{item}</li></Link>
         ))}
         </ul>
         <div className='border-[#FFFFFF4D] border-[1px] w-full'></div>
@@ -23,9 +23,9 @@ const Footer = () => {
 
         <div className='flex justify-center pb-8'>
             <div className='flex justify-between gap-4'>
-            <Image width={40} height={40} src='/images/social1.png'></Image>
-            <Image width={40} height={40} src='/images/social2.png'></Image>
-            <Image width={40} height={40} src='/images/social3.png'></Image>
+            <Image alt='social-icon' width={40} height={40} src='/images/social1.png'></Image>
+            <Image alt='social-icon' width={40} height={40} src='/images/social2.png'></Image>
+            <Image  alt='social-icon' width={40} height={40} src='/images/social3.png'></Image>
             </div>
         </div>
     </div>
