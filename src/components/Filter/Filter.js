@@ -15,10 +15,22 @@ const Filter = () => {
   } = useContext(ProductContext);
 
   const handleCategory = (cat) => {
-    setFilters({ ...filter, category: cat });
+    if(cat === filter?.category){
+      setFilters({ ...filter, category: "" });
+    }
+    else{
+      setFilters({ ...filter, category: cat });
+    }
+    
   };
   const handleRating = (rating) => {
-    setFilters({ ...filter, rating: rating });
+    if(rating === filter?.rating){
+      setFilters({ ...filter, rating: null });
+    }
+    else{
+      setFilters({ ...filter, rating: rating });
+    }
+    
   };
   const handlePrice = (price) => {
     setFilters({ ...filter, priceRange: price });
