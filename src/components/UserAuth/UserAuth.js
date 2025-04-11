@@ -23,7 +23,7 @@ export default function UserAuth() {
         <div className="md:hidden mt-4 text-center">
           <button
             onClick={() => router.push(pathname==="/login" ? "/signup" : "/login")}
-            className="mt-4 text-blue-600 underline"
+            className="mt-4 pb-4 text-blue-600 underline"
           >
             {pathname === "/login" ? "Don't have an account? Sign Up" : "Already have an account? Login In"}
           </button>

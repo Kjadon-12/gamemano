@@ -101,7 +101,7 @@ const filterProducts = async () => {
             <div>
               <h3>All Products</h3>
               <p>
-                Showing {limit} of {total}
+                Showing {filteredProducts?.length || limit} of {total}
               </p>
             </div>
             <SortButton />
