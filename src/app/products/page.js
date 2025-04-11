@@ -1,11 +1,14 @@
 import ListingPage from '@/components/ListingPage/ListingPage'
-import { getAllProducts } from '@/lib/axios'
+import { getAllCategory, getAllProducts } from '@/lib/axios'
 import React from 'react'
 
 const pages = async () => {
   const data =  await getAllProducts()
+  const categories = await getAllCategory()
   return (
-   <ListingPage {...data}/>
+    <div className='my-4'>
+   <ListingPage {...data} categories={categories}/>
+   </div>
   )
 }
 

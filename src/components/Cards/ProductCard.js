@@ -1,5 +1,6 @@
 import React from "react";
 import { StarRating } from "../Rating/StarRating";
+import Link from "next/link";
 
 
 const ProductCard = ({ product }) => {
@@ -31,12 +32,13 @@ const ProductCard = ({ product }) => {
           <p className="text-xs mt-1 capitalize text-black font-normal pb-6">{product?.brand}</p>
           <div className="flex items-center gap-5">
             <div>${product?.price}</div>
-            <button
+            <Link href={`/products/${product?.id}`}><button
               type="button"
-              className={`  bg-[#E58E27] text-white hover:bg-[#422400]  font-medium  cursor-pointer rounded-full px-18 py-3  transition-all ease-in-out duration-500`}
+              
+              className={`  bg-[#E58E27] text-white hover:bg-[#422400]  font-medium  cursor-pointer rounded-full w-[13rem] py-3  transition-all ease-in-out duration-500`}
             >
               Buy Now
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>
