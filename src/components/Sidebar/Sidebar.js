@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -10,11 +9,8 @@ import {
   FaTrophy,
   FaCog,
   FaSignOutAlt,
-  FaBars,
-  FaTimes,
 } from "react-icons/fa";
 import Image from "next/image";
-
 
 const menuItems = [
   { icon: <FaHome />, label: "Home" },
@@ -30,113 +26,70 @@ const bottomItems = [
 ];
 
 const Sidebar = () => {
-  const [hovered, setHovered] = useState(true);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-  const renderNavItem = (item, index) => (
-    <Link href="#" key={index}>
-      <div
-        className="flex items-center gap-3 px-3 py-2 hover:bg-[#1f1d18] rounded-lg transition-all duration-300 ease-in-out
-        ${ relative"
-      >
-        {item.icon}
-
-        <span className="text-sm">{item.label}</span>
-      </div>
-    </Link>
-  );
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <>
-      {/* Mobile toggle button */}
-     
-        <div className="md:hidden  p-4 bg-[#13100A] text-white flex justify-between fixed top-0">
-          <Image src="/images/GQ.png" alt="Logo" width={65} height={65} />
-          <button onClick={() => setIsMobileOpen(!isMobileOpen)}>
-            {isMobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-          </button>
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`
+        fixed top-0 left-0 h-screen z-50 text-white
+        flex flex-col justify-between
+        transition-all duration-500 ease-in-out
+        ${hovered ? "w-52" : "w-16"}
+        ${hovered ? "backdrop-blur-[40px] bg-[#3D352A80] shadow-[0px_4px_24px_-1px_#00000033]" : "bg-[#13100A]"}
+      `}
+    >
+      {/* Top */}
+      <div className="px-3 py-4">
+        <div className="mb-8 flex items-center gap-2 px-1">
+          <Image
+            src={hovered ? `/images/GameQuest.png` : `/images/GQ.png`}
+            width={hovered ? 200 : 90}
+            height={hovered ? 100 : 90}
+            alt="Logo"
+          />
         </div>
-      
 
-      {/* Sidebar */}
-     
-        <div
-          className={`bg-[#13100A] fixed  text-white h-screen flex flex-col justify-between top-0 z-50 transition-all duration-300 ease-in-out
-        ${
-          isMobileOpen
-            ? "w-52 left-0 md:relative md:flex"
-            : "w-0 left-[-100%] md:w-16 md:left-0"
-        }
-        ${hovered && !isMobileOpen ? "md:w-48" : ""}
-        `}
-          onMouseEnter={() => !isMobileOpen && setHovered(true)}
-          onMouseLeave={() => !isMobileOpen && setHovered(false)}
-        >
-          {/* Top */}
-          <div className="px-3 py-4">
-            <div className="mb-8 flex items-center gap-2 px-2">
-              <Image
-                src={hovered ? `/images/GameQuest.png` : `/images/GQ.png`}
-                width={70}
-                height={70}
-                alt="Logo"
-              />
-              {/* {(hovered || isMobileOpen) && (
-              <span className="text-lg font-bold">GameQuest</span>
-            )} */}
-            </div>
-            <nav className="flex flex-col gap-2">
-              {menuItems.map((item, i) =>
-                hovered || isMobileOpen ? (
-                  renderNavItem(item, i)
-                ) : (
-                  <div
-                    key={i}
-                    className="flex items-center justify-center p-2 hover:bg-[#1f1d18] rounded-lg"
-                  >
-                    {item.icon}
-                  </div>
-                )
-              )}
-            </nav>
-          </div>
+        <nav className="flex flex-col gap-2">
+          {menuItems.map((item, i) => (
+            <Link href="#" key={i}>
+              <div className="flex items-center px-2 py-2 hover:text-[#E58E27] transition-colors duration-300 ease-in-out">
+                <span className="text-lg w-6 flex-shrink-0">{item.icon}</span>
+                <span
+                  className={`text-sm ml-3 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
+                    hovered ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </nav>
+      </div>
 
-          {/* Bottom */}
-          <div className="px-3 py-4 border-t border-[#FFFFFF33]">
-            <nav className="flex flex-col gap-2">
-              {bottomItems.map((item, i) =>
-                hovered || isMobileOpen ? (
-                  renderNavItem(item, i)
-                ) : (
-                  <div
-                    key={i}
-                    className="flex items-center justify-center p-2 hover:bg-[#1f1d18] rounded-lg"
-                  >
-                    {item.icon}
-                  </div>
-                )
-              )}
-            </nav>
-          </div>
-        </div>
-      
-    </>
+      {/* Bottom (Sticky) */}
+      <div className="px-3 py-4 border-t border-[#FFFFFF33]">
+        <nav className="flex flex-col gap-2">
+          {bottomItems.map((item, i) => (
+            <Link href="#" key={i}>
+              <div className="flex items-center px-2 py-2 hover:text-[#E58E27] transition-colors duration-300 ease-in-out">
+                <span className="text-lg w-6 flex-shrink-0">{item.icon}</span>
+                <span
+                  className={`text-sm ml-3 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
+                    hovered ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </div>
   );
 };
 
 export default Sidebar;
-
-// import Image from 'next/image'
-// import React from 'react'
-
-// const Sidebar = () => {
-//   return (
-//     <div className='w-[5%] hover:w-[10%] bg-[pink]'>
-//         <Image alt="logo" width={60} height={60} src="/images/GQ.png" />
-//         <div></div>
-//         <div></div>
-//     </div>
-//   )
-// }
-
-// export default Sidebar
