@@ -13,6 +13,7 @@ export const getAllProducts = async () => {
 
 export const getProductDetails = async (id) => {
   const response = await basicInstance.get(`/products/${id}`);
+ 
   return response?.data;
 }
 

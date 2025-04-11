@@ -96,7 +96,7 @@ const filterProducts = async () => {
         <div className="flex-1 overflow-auto rounded-lg p-3 bg-[#2B241766]">
           <Filter />
         </div>
-        <div className="w-[80%]">
+        <div className="lg:w-[80%] md:[65%] w-[60%]">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3>All Products</h3>
@@ -106,7 +106,7 @@ const filterProducts = async () => {
             </div>
             <SortButton />
           </div>
-          <div className="grid z-10 lg:grid-cols-3 md:grid-cols-2  grid-cols-1 gap-x-1 gap-y-8">
+          <div className="grid z-10  lg:grid-cols-3 md:grid-cols-2  grid-cols-1 gap-x-1 gap-y-8">
             {filteredProducts?.length > 0 &&
               filteredProducts?.map((item, index) => (
                 <ProductCard product={item} key={index} />
