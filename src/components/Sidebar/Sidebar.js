@@ -11,13 +11,15 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { deleteFromCookie } from "@/utils/localStorage";
 
 const menuItems = [
-  { icon: <FaHome />, label: "Home" },
-  { icon: <FaEnvelope />, label: "Messages" },
-  { icon: <FaStore />, label: "Game Store" },
-  { icon: <FaCreditCard />, label: "Payments" },
-  { icon: <FaTrophy />, label: "Leaderboard" },
+  { icon: <FaHome />, label: "Home" , link: "/" },
+  { icon: <FaEnvelope />, label: "Messages" , link: "/messages" },
+  { icon: <FaStore />, label: "Products"  , link: "/products"},
+  { icon: <FaCreditCard />, label: "Payments"  , link: "/payments"},
+  { icon: <FaTrophy />, label: "Leaderboard" , link: "/leaderboard" },
 ];
 
 const bottomItems = [
@@ -27,6 +29,22 @@ const bottomItems = [
 
 const Sidebar = () => {
   const [hovered, setHovered] = useState(false);
+  const router = useRouter()
+  const bottomLinkHandler = (label) => {
+    
+    if(label === "Logout"){
+      console.log("deleting")
+      deleteFromCookie();
+      alert("Logout Successfully!")
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
+    }
+    else{
+      let val = label.toLowerCase()
+      router.push(`/${val}`)
+    }
+  }
 
   return (
     <div
@@ -43,17 +61,17 @@ const Sidebar = () => {
       {/* Top */}
       <div className="px-3 py-4">
         <div className="mb-8 flex items-center gap-2 px-1">
-          <Image
+        <Link href={'/'}>  <Image
             src={hovered ? `/images/GameQuest.png` : `/images/GQ.png`}
             width={hovered ? 200 : 90}
             height={hovered ? 100 : 90}
             alt="Logo"
-          />
+          /> </Link>
         </div>
 
         <nav className="flex flex-col gap-2">
           {menuItems.map((item, i) => (
-            <Link href="#" key={i}>
+            <Link href={`${item.link}`} key={i}>
               <div className="flex items-center px-2 py-2 hover:text-[#E58E27] transition-colors duration-300 ease-in-out">
                 <span className="text-lg w-6 flex-shrink-0">{item.icon}</span>
                 <span
@@ -73,7 +91,7 @@ const Sidebar = () => {
       <div className="px-3 py-4 border-t border-[#FFFFFF33]">
         <nav className="flex flex-col gap-2">
           {bottomItems.map((item, i) => (
-            <Link href="#" key={i}>
+            <div onClick={() => bottomLinkHandler(item.label)} className="cursor-pointer" key={i}>
               <div className="flex items-center px-2 py-2 hover:text-[#E58E27] transition-colors duration-300 ease-in-out">
                 <span className="text-lg w-6 flex-shrink-0">{item.icon}</span>
                 <span
@@ -84,7 +102,7 @@ const Sidebar = () => {
                   {item.label}
                 </span>
               </div>
-            </Link>
+            </div>
           ))}
         </nav>
       </div>

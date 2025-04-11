@@ -23,7 +23,10 @@ export default function SignInForm({ pathname }) {
         alert("Login Successfully! , Now You can access products detail page");
         setFormState({email: "" , password:""});
         setLocalStorageToCookie();
-        router.push("/products")
+        router.push("/products");
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
       } else {
         alert("Please Enter Correct Credentials !");
         return;
@@ -32,6 +35,7 @@ export default function SignInForm({ pathname }) {
     else if(pathname==="/signup"){
       setToLocalStorage(formState?.email , formState?.password);
       alert("User Added Successfully !");
+      router.push("/login")
       setFormState({email: "" , password:""})
     }
   };
