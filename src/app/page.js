@@ -1,3 +1,4 @@
+import Header from "@/components/Header/Header";
 import { getAllProducts } from "@/lib/axios";
 
 
@@ -6,7 +7,9 @@ export default async function Home() {
 
   return (
     <>
-    <div>home page</div>
+    <div>
+      {/* <Header/> */}home page content
+    </div>
     
     </>
    

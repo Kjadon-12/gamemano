@@ -12,7 +12,7 @@ const Footer = () => {
   ]  
   return (
     <div className='bg-[#13100A] w-full'>
-        <ul className='flex w-full px-6 md:px-18 lg:px-30 py-6 justify-between '>
+        <ul className='flex w-full bottom-0 px-6 md:px-18 lg:px-30 py-6 justify-between '>
         {footerList?.map((item , index) => (
           <Link  key={index} href="#"><li className='text-[#FFFFFFCC] text-xs md:text-md lg:text-lg font-light md:font-medium'>{item}</li></Link>
         ))}
