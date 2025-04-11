@@ -1,8 +1,11 @@
+import ListingPage from '@/components/ListingPage/ListingPage'
+import { getAllProducts } from '@/lib/axios'
 import React from 'react'
 
-const pages = () => {
+const pages = async () => {
+  const data =  await getAllProducts()
   return (
-    <div>Games</div>
+   <ListingPage {...data}/>
   )
 }
 

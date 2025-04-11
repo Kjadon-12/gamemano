@@ -4,14 +4,14 @@ import { StarRating } from "../Rating/StarRating";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="w-[19rem] h-[22rem] bg-[#d1b288] rounded-lg p-3 ">
+    <div className="w-[20rem] h-[23rem] bg-[#d1b288] rounded-lg p-3 ">
       <div className="relative">
         <div className="absolute text-xs w-max bg-[#3D352A] rounded-full px-3 flex items-center gap-1 py-1">
           <div className="rounded-full shadow-2xl bg-green-600  w-2 h-2"></div>
           1200 online
         </div>
         <div className="absolute -bottom-[20rem]">
-          <h2 className="text-black font-medium text-2xl">{product?.title}</h2>
+          <h2 className="text-black font-medium text-2xl ">{product?.title}</h2>
           <div className="mt-1">
             <StarRating rating={product?.rating}/>
           </div>
@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
                 </React.Fragment>
               ))}
           </ul>
-          <p className="text-xs mt-1 pb-6">Released 10th August 2022</p>
+          <p className="text-xs mt-1 capitalize text-black font-normal pb-6">{product?.brand}</p>
           <div className="flex items-center gap-5">
             <div>${product?.price}</div>
             <button
