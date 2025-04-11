@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ProductDetail = () => {
+const ProductDetail = async ({params}) => {
+  const id = await params?.productId;
   return (
     <div>ProductDetail</div>
   )
