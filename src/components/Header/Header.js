@@ -22,9 +22,9 @@ const Header = () => {
 
         <ul className="flex gap-2 text-sm md:text-base text-[#FFFFFFB2]">
           {headerList.map((item, index) => (
-            <Link href="#" key={index}>
+            <Link className="hover:text-yellow" href="#" key={index}>
               <li
-                className={`px-4 ${index !== 0 ? 'border-l border-[#FFFFFF4D]' : ''}`}
+                className={`hover:text-[#E58E27] px-4 ${index !== 0 ? 'border-l border-[#FFFFFF4D]' : ''}`}
               >
                 {item}
               </li>
