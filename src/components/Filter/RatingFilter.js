@@ -15,7 +15,7 @@ const RatingFilter = ({ handleRating }) => {
           key={index}
           className={`flex px-1 py-0.5 ${
             filter?.rating == rate && "bg-amber-900 rounded-sm"
-          } cursor-pointer items-center my-1 gap-2`}
+          } cursor-pointer flex-wrap items-center my-1 gap-2`}
         >
           <StarRating rating={rate} /> <p>& UP</p>
         </div>

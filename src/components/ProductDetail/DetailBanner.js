@@ -58,9 +58,9 @@ const DetailBanner = ({ productDetail }) => {
           type="button"
           className={` ${
             showWhiteImage
-              ? "bg-[#E58E27] text-white"
-              : "bg-[#452e12b4] text-[#080604ab]"
-          } font-medium  cursor-pointer rounded-full md:px-18 px-12 py-3  transition-all ease-in-out duration-150`}
+              ? "bg-[#E58E27] cursor-pointer text-white"
+              : "bg-[#452e12b4] cursor-no-drop text-[#080604ab]"
+          } font-medium   rounded-full md:px-18 px-12 py-3  transition-all ease-in-out duration-150`}
         >
           Try For Free
         </button>

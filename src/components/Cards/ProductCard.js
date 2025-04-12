@@ -3,11 +3,14 @@ import React from "react";
 import { StarRating } from "../Rating/StarRating";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const ProductCard = ({ product }) => {
-  console.log(product);
+
+  const pathname = usePathname()
+
   return (
-    <div className="w-[20rem] h-[23rem] bg-[#d1b288] rounded-lg p-3 ">
+    <div className={`${pathname === "/products" ? " xl:w-[20rem] lg:w-[20rem] w-full h-[23rem]" : "xl:w-[23rem]  md:w-[18rem] w-full h-[23rem]"}  bg-[#d1b288] rounded-lg p-3 `}>
       <div className="relative">
         <div className="absolute text-xs w-max bg-[#3D352A] rounded-full px-3 flex items-center gap-1 py-1">
           <div className="rounded-full shadow-2xl bg-green-600  w-2 h-2"></div>
@@ -25,7 +28,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
 
-        <div className="absolute -bottom-[20rem]">
+        <div className={`absolute ${pathname === "/products" ? " xl:w-[18rem] lg:w-[18rem] w-full " : "xl:w-[20rem]  md:w-[16rem] w-full"} -bottom-[20rem]`}>
           <h2 className="text-black font-medium text-2xl ">{product?.title}</h2>
           <div className="mt-1">
             <StarRating rating={product?.rating} />
@@ -43,20 +46,22 @@ const ProductCard = ({ product }) => {
                 </React.Fragment>
               ))}
           </ul>
+         
           <p className="text-xs mt-1 capitalize text-black font-normal pb-6">
             {product?.brand}
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center w-[inherit]  justify-between">
             <div>${product?.price}</div>
             <Link href={`/products/${product?.id}`}>
               <button
                 type="button"
-                className={`  bg-[#E58E27] text-white hover:bg-[#422400]  font-medium  cursor-pointer rounded-full w-[13rem] py-3  transition-all ease-in-out duration-500`}
+                className={`  bg-[#E58E27] text-white hover:bg-[#422400]  font-medium  cursor-pointer rounded-full lg:w-[13rem] md:w-[10rem] w-[8rem] py-3  transition-all ease-in-out duration-500`}
               >
                 Buy Now
               </button>
             </Link>
           </div>
+        
         </div>
       </div>
     </div>

@@ -1,50 +1,61 @@
-
 @import "tailwindcss";
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.font-press-start {
+  font-family: 'Press Start 2P';
+  color: #DAB785;
+  font-weight: 400;
+
+}
 
 @layer utilities {
-    @keyframes fadeInLeft {
-      from {
-        transform: translateX(-16rem);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+  @keyframes fadeInLeft {
+    from {
+      transform: translateX(-16rem);
+      opacity: 0;
     }
-  
-    .trans {
-      animation: fadeInLeft 1s ease-out forwards;
-    }
-    @keyframes slideUp1 {
-      from {
-        transform: translateY(40px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-  
-    @keyframes slideUp2 {
-      from {
-        transform: translateY(60px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-  
-    .animate-slideUp1 {
-      animation: slideUp1 1.5s ease-out forwards;
-    }
-  
-    .animate-slideUp2 {
-      animation: slideUp2 2s ease-out forwards;
-    
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
+
+  .trans {
+    animation: fadeInLeft 1s ease-out forwards;
+  }
+
+  @keyframes slideUp1 {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp2 {
+    from {
+      transform: translateY(60px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slideUp1 {
+    animation: slideUp1 1.5s ease-out forwards;
+  }
+
+  .animate-slideUp2 {
+    animation: slideUp2 2s ease-out forwards;
+
+  }
+}
