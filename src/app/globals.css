@@ -9,6 +9,15 @@
 
 }
 
+.swiper-pagination-bullet {
+  background-color: #bbb !important; /* default (inactive) color */
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #1e40af !important; /* active bullet color (e.g. blue-800) */
+}
+
 @layer utilities {
   @keyframes fadeInLeft {
     from {
