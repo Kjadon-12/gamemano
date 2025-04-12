@@ -17,6 +17,6 @@ export const setLocalStorageToCookie = () => {
 };
 
 export const deleteFromCookie = () => {
-    document.cookie = `email=0; path=/;`; // overwrite with empty value
-    localStorage.removeItem("email");    // optional: remove from localStorage too
+    document.cookie = `email=0; path=/;`; 
+    localStorage.removeItem("email");   
   };
