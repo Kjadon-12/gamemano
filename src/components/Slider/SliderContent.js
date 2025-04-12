@@ -45,10 +45,10 @@ const SliderContent = ({ activeImage, setActiveImage }) => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="flex items-center mt-20 mb-3 gap-10">
+      <div className="flex flex-wrap items-center mt-20 mb-3 gap-10">
         <button
           type="button"
-          className={` ${showWhiteImage ? "bg-[#E58E27] text-white" : "bg-[#452e12b4] text-[#080604ab]"} font-medium  cursor-pointer rounded-full px-18 py-3  transition-all ease-in-out duration-150`}
+          className={` ${showWhiteImage ? "bg-[#E58E27] cursor-pointer  text-white" : "bg-[#452e12b4] cursor-not-allowed text-[#080604ab]"} font-medium  rounded-full px-18 py-3  transition-all ease-in-out duration-150`}
         >
           Try For Free
         </button>

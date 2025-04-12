@@ -5,9 +5,9 @@ import Link from "next/link";
 import React, { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { usePathname } from "next/navigation";
-import { IoMdLogIn } from "react-icons/io";
 import { IoNotificationsOutline, IoBagCheckOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
+import MobileHeader from "./MobileHeader";
 
 const Header = () => {
   const headerList = ["Home", "Products", "Leaderboard"];
@@ -16,9 +16,20 @@ const Header = () => {
   const [showNotifications, setShowNotifications] = useState(false);
 
   return (
+    <>
+
+<div
+      className={`fixed top-0 ${
+        pathname === "/" ? "left-[4rem] lg:hidden flex" : pathname !== "/" ? "hidden" : "left-0 flex"
+      } right-0 z-30 bg-[#13100A] py-4 px-6  items-center justify-between border-b border-[#FFFFFF4D]`}
+    ><MobileHeader /></div>
+
+
+
+
     <div
       className={`fixed top-0 ${
-        pathname === "/" ? "left-[4rem] hidden md:flex" : "left-0"
+        pathname === "/" ? "left-[4rem] hidden lg:flex" : "left-0"
       } right-0 z-30 bg-[#13100A] py-4 px-6 flex items-center justify-between border-b border-[#FFFFFF4D]`}
     >
       {/* LEFT */}
@@ -27,7 +38,7 @@ const Header = () => {
          <Link href={'/'}> <Image alt="logo" width={60} height={60} src="/images/GQ.png" /></Link>
         )}
 
-        <ul className="flex gap-2 text-sm md:text-base text-[#FFFFFFB2]">
+        <ul className={`${pathname !== "/" && "lg:flex hidden"} flex gap-2 text-sm md:text-base text-[#FFFFFFB2]`}>
           {headerList.map((item, index) => (
             <Link
               className="hover:text-yellow"
@@ -48,7 +59,7 @@ const Header = () => {
 
       {/* RIGHT */}
       <div className="flex items-center gap-4 relative">
-        <div className="min-w-[200px] border-r border-[#FFFFFF4D] w-full md:w-[350px]">
+        <div className={`${pathname!=="/" && "lg:block hidden "} min-w-[200px] border-r border-[#FFFFFF4D] w-full md:w-[350px] `}>
           <SearchBar />
         </div>
 
@@ -84,6 +95,7 @@ const Header = () => {
         </ul>
       </div>
     </div>
+    </>
   );
 };
 
