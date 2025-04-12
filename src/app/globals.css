@@ -15,6 +15,36 @@
     }
   
     .trans {
-      animation: fadeInLeft 0.6s ease-out forwards;
+      animation: fadeInLeft 1s ease-out forwards;
+    }
+    @keyframes slideUp1 {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  
+    @keyframes slideUp2 {
+      from {
+        transform: translateY(60px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  
+    .animate-slideUp1 {
+      animation: slideUp1 1.5s ease-out forwards;
+    }
+  
+    .animate-slideUp2 {
+      animation: slideUp2 2s ease-out forwards;
+    
     }
   }

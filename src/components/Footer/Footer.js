@@ -11,10 +11,11 @@ const Footer = () => {
     "Cookie Preferences"
   ]  
   return (
-    <div className='bg-[#13100A] w-full'>
-        <ul className='flex w-full bottom-0 px-6 md:px-18 lg:px-30 py-6 justify-between '>
+    <div className='bg-[#13100A] mt-18 w-full'>
+       <div className='border-[#FFFFFF4D] border-[0.5px] w-full'></div>
+        <ul className='flex md:flex-row flex-col w-full bottom-0 px-6 md:px-18 lg:px-30 py-6 justify-between '>
         {footerList?.map((item , index) => (
-          <Link  key={index} href="#"><li className='text-[#FFFFFFCC] text-xs md:text-md lg:text-lg font-light md:font-medium'>{item}</li></Link>
+          <Link  key={index} href="#"><li className='text-[#FFFFFFCC]  mb-3  text-xs md:text-md lg:text-lg font-light md:font-medium'>{item}</li></Link>
         ))}
         </ul>
         <div className='border-[#FFFFFF4D] border-[1px] w-full'></div>
