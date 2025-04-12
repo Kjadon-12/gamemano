@@ -25,21 +25,7 @@ const ListingPage = ({ products, total, limit, categories }) => {
     setPrice([min , max])
   }, []);
 
-//   const filterProducts = async () => {
-//     if(filter?.category !== ""){
-//         const data = await getProductByCat(filter?.category);
-//         setAllProducts(data?.products)
-//     }
 
-//     let productList = [...allProducts]
-
-//     if(filter?.rating){
-//       productList = productList?.filter((product) => product?.rating >= filter?.rating)
-//     }
-//     if(filter?.priceRange?.length > 0){
-//      productList = productList?.filter((product) => product?.price)
-//     }
-//   }
 
 const filterProducts = async () => {
     let productList = [...allProducts];

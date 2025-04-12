@@ -33,7 +33,7 @@ const Sidebar = () => {
   const bottomLinkHandler = (label) => {
     
     if(label === "Logout"){
-      console.log("deleting")
+     
       deleteFromCookie();
       alert("Logout Successfully!")
       setTimeout(() => {

@@ -7,7 +7,7 @@ export const config = {
 export async function middleware(request) {
   const email = request.cookies.get("email")?.value;
   
-  console.log(email , "cook")
+  
   if (!email) {
     return NextResponse.redirect(new URL("/login", request.url));
   }

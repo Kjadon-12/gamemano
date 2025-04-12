@@ -15,8 +15,7 @@ export default function SignInForm({ pathname }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // Submit logic here
-    console.log("Form Submitted", formState);
+   
     if (pathname === "/login") {
       const { email, password } = getFromLocalStorage();
       if (email === formState?.email && password === formState?.password) {
